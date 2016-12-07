@@ -1,0 +1,28 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cui", "cui\cui.csproj", "{4CD2C496-46FB-4528-97B8-7CFC94600F4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cui.Tests", "cui.Tests\cui.Tests.csproj", "{477DB84A-FBD2-4B4A-8A50-68304F1971DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CD2C496-46FB-4528-97B8-7CFC94600F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CD2C496-46FB-4528-97B8-7CFC94600F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CD2C496-46FB-4528-97B8-7CFC94600F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CD2C496-46FB-4528-97B8-7CFC94600F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477DB84A-FBD2-4B4A-8A50-68304F1971DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477DB84A-FBD2-4B4A-8A50-68304F1971DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477DB84A-FBD2-4B4A-8A50-68304F1971DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477DB84A-FBD2-4B4A-8A50-68304F1971DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
