@@ -1,3 +1,5 @@
+using System;
+
 namespace CUI
 {
 	public struct Vector
@@ -17,7 +19,7 @@ namespace CUI
 		{
 			get
 			{
-				return Math.Sqrt(this.x * this.x + this.y * this.y);
+				return (float)Math.Sqrt(this.x * this.x + this.y * this.y);
 			}
 		}
 		public float sqrMagnitude
