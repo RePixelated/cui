@@ -2,8 +2,8 @@ namespace CUI
 {
 	public struct Rect
 	{
-		Vector min;
-		Vector max;
+		private Vector min;
+		private Vector max;
 
 		/// Constructors
 		public Rect(Vector position, Vector size)
