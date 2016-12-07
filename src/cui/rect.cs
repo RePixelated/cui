@@ -177,6 +177,7 @@ namespace CUI
 			return other.xMax > this.xMin && other.xMin < this.xMax &&
 				other.yMax > this.yMin && other.yMin < this.xMax;
 		}
+
 		public override bool Equals(object other)
 		{
 			if (other is Rect)
