@@ -100,7 +100,7 @@ namespace CUI
 			}
 		}
 
-		/// Anchor Points
+		// Anchor Points
 		// Top
 		public Vector TopLeft
 		{
