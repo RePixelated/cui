@@ -37,6 +37,7 @@
     <Compile Include="element.cs" />
     <Compile Include="vector.cs" />
     <Compile Include="rect.cs" />
+    <Compile Include="box.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

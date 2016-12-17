@@ -1,38 +1,14 @@
-using System;
 using System.Collections.Generic;
 
 namespace CUI
 {
-	class Element
+	public class Element
 	{
 		string name;
-		List<Element> children;
+		protected List<Element> children;
 		Element parent;
 
-		Rect boundary;
-		
-		/// Constructors
-		public Element(string name, Rect boundary)
-		{
-			this.name = name;
-			children = new List<Element>();
-
-			this.boundary = boundary;
-		}
-		public Element(string name, Vector position, Vector size)
-		{
-			this.name = name;
-			children = new List<Element>();
-
-			this.boundary = new Rect(position, size);
-		}
-		public Element(string name, int x, int y, int width, int height)
-		{
-			this.name = name;
-			children = new List<Element>();
-
-			this.boundary = new Rect(x, y, width, height);
-		}
+		protected Rect boundary;
 
 		/// Properties
 		public string Name
@@ -149,6 +125,21 @@ namespace CUI
 
 			if (i < children.Count)
 				children.RemoveAt(i);
+		}
+		public Element Child(string name)
+		{
+			int i = 0;
+			while (i < children.Count && children[i].Name != name)
+				i++;
+
+			if (i < children.Count)
+				return children[i];
+			return null;
+		}
+
+		public virtual string Props()
+		{
+			return "Not implemented";
 		}
 	}
 }

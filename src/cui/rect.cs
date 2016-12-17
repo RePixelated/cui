@@ -11,7 +11,7 @@ namespace CUI
 		public Rect(Vector position, Vector size)
 		{
 			min = position;
-			size = position + size;
+			max = position + size;
 		}
 		public Rect(int x, int y, int width, int height)
 		{
