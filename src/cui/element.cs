@@ -8,7 +8,7 @@ namespace CUI
 		protected List<Element> children;
 		Element parent;
 
-		protected Rect boundary;
+		Rect boundary;
 
 		/// Properties
 		public string Name
@@ -33,6 +33,51 @@ namespace CUI
 				parent = value;
 			}
 		}
+		public int ChildCount
+		{
+			get
+			{
+				return children.Count;
+			}
+		}
+
+		public Rect Boundary
+		{
+			get
+			{
+				return LocalBoundary;
+			}
+			set
+			{
+				LocalBoundary = value;
+			}
+		}
+		public Rect LocalBoundary
+		{
+			get
+			{
+				return boundary;
+			}
+			set
+			{
+				boundary = value;
+			}
+		}
+		public Rect GlobalBoundary
+		{
+			get
+			{
+				if (Parent == null)
+					return LocalBoundary;
+				return new Rect(Parent.GlobalBoundary.TopLeft, LocalBoundary.BottomRight);
+			}
+			set
+			{
+				if (Parent == null)
+					LocalBoundary = value;
+				LocalBoundary = new Rect(Parent.GlobalBoundary.TopLeft - value.TopLeft, value.BottomRight);
+			}
+		}
 
 		// Anchor Points
 		// Top
@@ -40,21 +85,21 @@ namespace CUI
 		{
 			get
 			{
-				return boundary.TopLeft;
+				return Boundary.TopLeft;
 			}
 		}
 		public Vector TopCenter
 		{
 			get
 			{
-				return boundary.TopCenter;
+				return Boundary.TopCenter;
 			}
 		}
 		public Vector TopRight
 		{
 			get
 			{
-				return boundary.TopRight;
+				return Boundary.TopRight;
 			}
 		}
 		// Center
@@ -62,21 +107,21 @@ namespace CUI
 		{
 			get
 			{
-				return boundary.CenterLeft;
+				return Boundary.CenterLeft;
 			}
 		}
 		public Vector Center
 		{
 			get
 			{
-				return boundary.Center;
+				return Boundary.Center;
 			}
 		}
 		public Vector CenterRight
 		{
 			get
 			{
-				return boundary.CenterRight;
+				return Boundary.CenterRight;
 			}
 		}
 		// Bottom
@@ -84,24 +129,47 @@ namespace CUI
 		{
 			get
 			{
-				return boundary.BottomRight;
+				return Boundary.BottomRight;
 			}
 		}
 		public Vector BottomCenter
 		{
 			get
 			{
-				return boundary.BottomCenter;
+				return Boundary.BottomCenter;
 			}
 		}
 		public Vector BottomRight
 		{
 			get
 			{
-				return boundary.BottomRight;
+				return Boundary.BottomRight;
 			}
 		}
-	
+
+		public int Width
+		{
+			get
+			{
+				return Boundary.Width;
+			}
+			set
+			{
+				Boundary = new Rect(Boundary.TopLeft, new Vector(value, Boundary.Height));
+			}
+		}
+		public int Height
+		{
+			get
+			{
+				return Boundary.Height;
+			}
+			set
+			{
+				Boundary = new Rect(Boundary.TopLeft, new Vector(Boundary.Width, value));
+			}
+		}
+
 		/// Methods
 		public void AddChild(object child)
 		{
@@ -137,9 +205,6 @@ namespace CUI
 			return null;
 		}
 
-		public virtual string Props()
-		{
-			return "Not implemented";
-		}
+		public virtual void Draw() {}
 	}
 }

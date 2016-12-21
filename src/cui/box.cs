@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CUIInternal;
 
 namespace CUI
 {
@@ -12,23 +13,21 @@ namespace CUI
 		{
 			Name = name;
 			children = new List<Element>();
-			
-			// Used temporarly to stop problems when trying to access the parent of the root element
-			Parent = new Element();
 
-			this.boundary = boundary;
+			LocalBoundary = boundary;
 
 			this.color = color;
 		}
 
 		/// Methods
-		public override string Props()
+		public override void Draw()
 		{
-			return
-				"name: " + Name +
-				" | child of: " + Parent.Name +
-				" | rect: " +  boundary.ToString() +
-				" | color: " + color.ToString();
+			for (int i = 0; i < GlobalBoundary.Height; i++)
+				for (int j = 0; j < GlobalBoundary.Width; j++)
+					Drawing.WriteChar(
+							' ',
+							GlobalBoundary.TopLeft + new Vector(j, i),
+							Drawing.ForegroundColor, color);
 		}
 	}
 }

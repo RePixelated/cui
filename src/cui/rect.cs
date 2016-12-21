@@ -1,5 +1,3 @@
-using System;
-
 namespace CUI
 {
 	public struct Rect
