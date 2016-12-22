@@ -17,6 +17,19 @@ namespace CUI
 			this.color = color;
 		}
 
+		/// Properties
+		public ConsoleColor Color
+		{
+			get
+			{
+				return color;
+			}
+			set
+			{
+				color = value;
+			}
+		}
+
 		/// Methods
 		public override void Draw()
 		{
