@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using CUIInternal;
 
 namespace CUI
@@ -31,10 +30,7 @@ namespace CUI
 		{
 			for (int i = 0; i < GlobalBoundary.Height; i++)
 				for (int j = 0; j < GlobalBoundary.Width; j++)
-					Drawing.WriteChar(
-							' ',
-							GlobalBoundary.TopLeft + new Vector(j, i),
-							fgColor, bgColor);
+					Drawing.WriteBlock(GlobalBoundary.TopLeft + new Vector(j, i), bgColor);
 
 			Drawing.WriteArea(text, GlobalBoundary, fgColor, bgColor, wordWrapping);
 		}

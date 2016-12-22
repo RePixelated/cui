@@ -48,13 +48,19 @@ namespace CUIInternal
 
 			Console.Write(character);
 		}
+		public static void WriteBlock(Vector position, ConsoleColor color)
+		{
+			MoveCursor(position);
+			SetColors(ForegroundColor, color);
+
+			Console.Write(" ");
+		}
 		public static void WriteText(string text, Vector position, ConsoleColor fgColor, ConsoleColor bgColor)
 		{
 			MoveCursor(position);
 			SetColors(fgColor, bgColor);
 
 			Console.Write(text);
-
 		}
 		public static void WriteArea(string text, Rect area, ConsoleColor fgColor, ConsoleColor bgColor, bool wordWrapping = true)
 		{
