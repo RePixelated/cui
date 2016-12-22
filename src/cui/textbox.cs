@@ -27,6 +27,64 @@ namespace CUI
 			this.bgColor = bgColor;
 		}
 
+		/// Properties
+		public string Text
+		{
+			get
+			{
+				return text;
+			}
+			set
+			{
+				text = value;
+			}
+		}
+		public TextAlignment TextAlign
+		{
+			get
+			{
+				return textAlign;
+			}
+			set
+			{
+				textAlign = value;
+			}
+		}
+		public bool WordWrapping
+		{
+			get
+			{
+				return wordWrapping;
+			}
+			set
+			{
+				wordWrapping = value;
+			}
+		}
+
+		public ConsoleColor ForegroundColor
+		{
+			get
+			{
+				return fgColor;
+			}
+			set
+			{
+				fgColor = value;
+			}
+		}
+		public ConsoleColor BackgroundColor
+		{
+			get
+			{
+				return bgColor;
+			}
+			set
+			{
+				bgColor = value;
+			}
+		}
+
 		/// Methods
 		public override void Draw()
 		{
