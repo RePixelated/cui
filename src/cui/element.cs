@@ -5,7 +5,7 @@ namespace CUI
 	public class Element
 	{
 		string name;
-		protected List<Element> children;
+		protected List<Element> children = new List<Element>();
 		Element parent;
 
 		Rect boundary;

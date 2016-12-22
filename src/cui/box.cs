@@ -12,7 +12,6 @@ namespace CUI
 		public Box(string name, Rect boundary, ConsoleColor color)
 		{
 			Name = name;
-			children = new List<Element>();
 
 			LocalBoundary = boundary;
 
