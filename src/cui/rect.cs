@@ -6,15 +6,20 @@ namespace CUI
 		private Vector max;
 
 		/// Constructors
-		public Rect(Vector position, Vector size)
-		{
-			min = position;
-			max = position + size;
-		}
 		public Rect(int x, int y, int width, int height)
 		{
 			min = new Vector(x, y);
 			max = min + new Vector(width, height);
+		}
+		public Rect(Vector position, int width, int height)
+		{
+			min = position;
+			max = min + new Vector(width, height);
+		}
+		public Rect(Vector position, Vector size)
+		{
+			min = position;
+			max = position + size;
 		}
 		public Rect(Rect other)
 		{

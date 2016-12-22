@@ -155,7 +155,7 @@ namespace CUI
 			}
 			set
 			{
-				Boundary = new Rect(Boundary.TopLeft, new Vector(value, Boundary.Height));
+				Boundary = new Rect(Boundary.TopLeft, value, Boundary.Height);
 			}
 		}
 		public int Height
@@ -166,7 +166,7 @@ namespace CUI
 			}
 			set
 			{
-				Boundary = new Rect(Boundary.TopLeft, new Vector(Boundary.Width, value));
+				Boundary = new Rect(Boundary.TopLeft, Boundary.Width, value);
 			}
 		}
 
