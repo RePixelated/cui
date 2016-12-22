@@ -115,36 +115,29 @@ namespace CUIInternal
 						// There are segments to be written and the current line isn't out of bounds yet
 						while (charsIn < words[i].Length && !outOfBounds)
 						{
-							// The segment wouldn't be out of bounds
-							if (lineNum <= area.Height - 1)
+							// Calculate the maximum possible segment length in the current line
+							segmentLength = words[i].Length - charsIn;
+							segmentLength = segmentLength > area.Width - inlinePos ? area.Width - inlinePos : segmentLength;
+
+							// Write out the segment
+							Console.Write(words[i].Substring(charsIn, segmentLength));
+							charsIn += segmentLength;
+
+							// There are still segments to be written
+							if (charsIn < words[i].Length)
 							{
-								// Calculate the maximum possible segment length in the current line;
-								segmentLength = words[i].Length - charsIn;
-								segmentLength = segmentLength > area.Width - inlinePos ? area.Width - inlinePos : segmentLength;
-
-								// Write out the segment
-								Console.Write(words[i].Substring(charsIn, segmentLength));
-								charsIn = charsIn + segmentLength;
-
-								// There are still segments to be written
-								if (charsIn < words[i].Length)
+								// The segment wouldn't be out of bounds
+								if (lineNum + 1 <= area.Height - 1)
 								{
-									// The segment wouldn't be out of bounds.
-									if (lineNum + 1 <= area.Height - 1)
-									{
-										// Jump a line
-										lineNum++;
-										inlinePos = 0;
-										MoveCursor(area.TopLeft + new Vector(0, lineNum));
-									}
-									// The segment would be out of bounds
-									else
-										outOfBounds = true;
+									// Jump a line
+									lineNum++;
+									inlinePos = 0;
+									MoveCursor(area.TopLeft + new Vector(0, lineNum));
 								}
+								// The segment would be out of bounds
+								else
+									outOfBounds = true;
 							}
-							// The segment would be out of bounds
-							else
-								outOfBounds = true;
 						}
 						// Set the inline position counter after the last written segment
 						inlinePos = segmentLength;
@@ -156,7 +149,35 @@ namespace CUIInternal
 			}
 			else
 			{
-				// TODO: Character-based wrapping
+				int lineNum = 0;
+				int charsIn = 0;
+				bool outOfBounds = false;
+				// There are segments to be written and the current line isn't out of bounds yet
+				while (charsIn < text.Length && !outOfBounds)
+				{
+					// Calculate the maximum possible segment length in the current line
+					int segmentLength = text.Length - charsIn;
+					segmentLength = segmentLength > area.Width ? area.Width : segmentLength;
+
+					// Write out the segment
+					Console.Write(text.Substring(charsIn, segmentLength));
+					charsIn += segmentLength;
+
+					// There are still segments to be written
+					if (charsIn < text.Length)
+					{
+						// The segment wouldn't be out of bounds
+						if (lineNum + 1 <= area.Height - 1)
+						{
+							// Jump a line
+							lineNum++;
+							MoveCursor(area.TopLeft + new Vector(0, lineNum));
+						}
+						// The segment would be out of bounds
+						else
+							outOfBounds = true;
+					}
+				}
 			}
 		}
 	}
