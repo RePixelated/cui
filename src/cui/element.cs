@@ -129,7 +129,7 @@ namespace CUI
 		{
 			get
 			{
-				return Boundary.BottomRight;
+				return Boundary.BottomLeft;
 			}
 		}
 		public Vector BottomCenter

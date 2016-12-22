@@ -116,14 +116,14 @@ namespace CUI
 		{
 			get
 			{
-				return new Vector(min.x + (max.x / 2), min.y);
+				return new Vector(min.x + (Width / 2), min.y);
 			}
 		}
 		public Vector TopRight
 		{
 			get
 			{
-				return new Vector(max.x, min.x);
+				return new Vector(max.x, min.y);
 			}
 		}
 		// Middle
@@ -131,21 +131,21 @@ namespace CUI
 		{
 			get
 			{
-				return new Vector(min.x, min.y + (max.y / 2));
+				return new Vector(min.x, min.y + (Height / 2));
 			}
 		}
 		public Vector Center
 		{
 			get
 			{
-				return new Vector(min.x + (max.x / 2), min.y + (max.y / 2));
+				return new Vector(min.x + (Width / 2), min.y + (Height / 2));
 			}
 		}
 		public Vector CenterRight
 		{
 			get
 			{
-				return new Vector(max.x, min.y + (max.y / 2));
+				return new Vector(max.x, min.y + (Height / 2));
 			}
 		}
 		// Right
@@ -160,7 +160,7 @@ namespace CUI
 		{
 			get
 			{
-				return new Vector(min.x + (max.x / 2), max.y);
+				return new Vector(min.x + (Width / 2), max.y);
 			}
 		}
 		public Vector BottomRight
