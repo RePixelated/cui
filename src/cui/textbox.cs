@@ -6,19 +6,21 @@ namespace CUI
 	public class TextBox : Element
 	{
 		string text;
+		TextAlignment textAlign;
 		bool wordWrapping;
 
 		ConsoleColor fgColor;
 		ConsoleColor bgColor;
 
 		/// Constructors
-		public TextBox(string name, Rect boundary, string text, ConsoleColor fgColor, ConsoleColor bgColor, bool wordWrapping = true)
+		public TextBox(string name, Rect boundary, string text, ConsoleColor fgColor, ConsoleColor bgColor, TextAlignment textAlign = TextAlignment.Left, bool wordWrapping = true)
 		{
 			Name = name;
 
 			LocalBoundary = boundary;
 
 			this.text = text;
+			this.textAlign = textAlign;
 			this.wordWrapping = wordWrapping;
 
 			this.fgColor = fgColor;
@@ -32,7 +34,7 @@ namespace CUI
 				for (int j = 0; j < GlobalBoundary.Width; j++)
 					Drawing.WriteBlock(GlobalBoundary.TopLeft + new Vector(j, i), bgColor);
 
-			Drawing.WriteArea(text, GlobalBoundary, fgColor, bgColor, wordWrapping);
+			Drawing.WriteArea(text, GlobalBoundary, fgColor, bgColor, textAlign, wordWrapping);
 		}
 	}
 }
