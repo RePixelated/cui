@@ -8,6 +8,7 @@ namespace CUI
 		protected List<Element> children = new List<Element>();
 		Element parent;
 
+		bool enabled;
 		Rect boundary;
 
 		/// Properties
@@ -38,6 +39,18 @@ namespace CUI
 			get
 			{
 				return children.Count;
+			}
+		}
+
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
 			}
 		}
 
